@@ -1,0 +1,107 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum ProductCategory {
+  STANDARD
+  DOUBLE_DECKER
+  TRIPLE_DECKER
+  COMBO
+  SIDE
+}
+
+enum ToppingCategory {
+  MEATS
+  VEGGIES
+  CHEESES
+}
+
+enum OrderType {
+  PICKUP
+  DELIVERY
+}
+
+enum OrderStatus {
+  RECEIVED
+  BAKING
+  OUT_FOR_DELIVERY
+  READY_FOR_PICKUP
+  COMPLETED
+}
+
+enum OrderChannel {
+  WEB
+  WHATSAPP
+}
+
+enum ChatChannel {
+  WEB
+  WHATSAPP
+}
+
+model Product {
+  id          String          @id @default(cuid())
+  name        String
+  description String
+  category    ProductCategory
+  imageUrl    String
+  priceSmall  Float?
+  priceMedium Float?
+  priceLarge  Float?
+  priceFixed  Float?
+  isActive    Boolean         @default(true)
+  sortOrder   Int             @default(0)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+}
+
+model Topping {
+  id         String          @id @default(cuid())
+  name       String
+  category   ToppingCategory
+  priceSmall Float           @default(0)
+  priceMedium Float          @default(0)
+  priceLarge Float           @default(0)
+  isActive   Boolean         @default(true)
+  sortOrder  Int             @default(0)
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+}
+
+model Order {
+  id              String       @id @default(cuid())
+  orderNumber     String       @unique
+  customerName    String
+  customerPhone   String
+  customerEmail   String?
+  orderType       OrderType
+  address         String?
+  items           String
+  subtotal        Float
+  deliveryFee     Float        @default(0)
+  total           Float
+  status          OrderStatus  @default(RECEIVED)
+  channel         OrderChannel @default(WEB)
+  paymentMethod   String?
+  paymentStatus   String       @default("pending")
+  notes           String?
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  completedAt     DateTime?
+}
+
+model ChatSession {
+  id        String      @id @default(cuid())
+  sessionId String      @unique
+  phone     String?
+  channel   ChatChannel @default(WEB)
+  messages  String      @default("[]")
+  cartData  String?
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
