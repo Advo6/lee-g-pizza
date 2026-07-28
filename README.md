@@ -1,6 +1,21 @@
 # Lee-G's Pizza — Full-Stack Ordering Platform
 
-A production-style pizza ordering web app built for **Lee-G's Pizza** (Phalaborwa, South Africa). Designed as a portfolio project demonstrating modern full-stack development: Next.js, React, Prisma, AI integration, admin tooling, and transactional email.
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Prisma](https://img.shields.io/badge/Prisma-SQLite-2D3748?style=flat-square&logo=prisma)](https://www.prisma.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+
+A production-style pizza ordering web app built for **Lee-G's Pizza** (Phalaborwa, South Africa). Portfolio project demonstrating full-stack development: Next.js, React, Prisma, AI chat, admin tooling, and transactional email.
+
+**Repository:** [github.com/Advo6/lee-g-pizza](https://github.com/Advo6/lee-g-pizza)  
+**Live demo:** _Add your Vercel URL here after deploying — see [Deploy to Vercel](#deploy-to-vercel)_
+
+## Screenshots
+
+| Menu & ordering | AI Pizza Chef | Admin dashboard |
+|---|---|---|
+| ![Menu page](docs/screenshots/menu.png) | ![AI chat widget](docs/screenshots/ai-chat.png) | ![Admin dashboard](docs/screenshots/admin-dashboard.png) |
 
 ## Highlights for recruiters
 
@@ -35,6 +50,25 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000)
 
 Admin: `/admin` (password from `ADMIN_PASSWORD` in `.env`)
+
+## Deploy to Vercel
+
+1. Go to [vercel.com/new](https://vercel.com/new) and import **Advo6/lee-g-pizza**
+2. Add these environment variables in the Vercel dashboard:
+
+| Variable | Value for demo |
+|----------|----------------|
+| `DATABASE_URL` | `file:/tmp/dev.db` |
+| `ADMIN_PASSWORD` | _choose a strong password_ |
+| `NEXT_PUBLIC_APP_URL` | `https://your-app.vercel.app` |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER` | `27717451135` |
+
+3. Click **Deploy**
+4. After deploy, copy your Vercel URL and update the **Live demo** link at the top of this README
+
+Optional: add `OPENAI_API_KEY` and `RESEND_API_KEY` in Vercel for full AI chat and email.
+
+> **Note:** SQLite on Vercel uses `/tmp` storage, so order data may reset between cold starts. The menu is re-seeded on each build — ideal for a portfolio demo.
 
 ## Environment variables
 
@@ -76,6 +110,7 @@ prisma/
 ├── schema.prisma
 └── seed.ts           # Full Lee-G's menu
 public/images/menu/   # Product images
+docs/screenshots/     # README screenshots
 ```
 
 ## Scripts
@@ -91,9 +126,18 @@ public/images/menu/   # Product images
 
 Works without API keys in **mock mode** (menu search, recommendations, basic cart commands). With `OPENAI_API_KEY`, uses GPT with function calling and retrieval from the live menu database.
 
+## Pin this repo on your GitHub profile
+
+1. Open [github.com/Advo6/lee-g-pizza](https://github.com/Advo6/lee-g-pizza)
+2. Click the **⚙️ gear** icon next to **About** (top right of the repo page)
+3. Check **Pin this repository**
+4. Save
+
+You can pin up to 6 repos — put this one first for recruiters.
+
 ## License
 
-Portfolio / demonstration project. Menu and branding belong to Lee-G's Pizza.
+MIT — see [LICENSE](LICENSE). Menu and branding belong to Lee-G's Pizza.
 
 ## Contact (store)
 
