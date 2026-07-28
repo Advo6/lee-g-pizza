@@ -8,6 +8,8 @@
 
 A production-style pizza ordering web app built for **Lee-G's Pizza** (Phalaborwa, South Africa). Designed as a portfolio project demonstrating modern full-stack development: Next.js, React, Prisma, AI integration, admin tooling, and transactional email.
 
+**Live demo:** https://your-app.vercel.app
+
 ## Screenshots
 
 | Menu & ordering | AI Pizza Chef | Admin dashboard |
