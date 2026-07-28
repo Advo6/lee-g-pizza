@@ -44,9 +44,6 @@ npm run db:setup
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
-
-Admin: `/admin` (password from `ADMIN_PASSWORD` in `.env`)
 
 ## Environment variables
 
