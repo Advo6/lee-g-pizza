@@ -5,7 +5,6 @@ import {
   getToppingPrice,
   normalizePizzaSize,
   type CartItem,
-  type CrustType,
 } from "@/lib/utils";
 import type { MenuProduct, MenuTopping, ResolvedCartParams } from "./types";
 

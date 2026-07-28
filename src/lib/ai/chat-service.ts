@@ -12,7 +12,8 @@ import { runChatCompletion } from "./openai-client";
 import { buildSystemPrompt, goodbyeReply, greetingReply } from "./prompts";
 import { recommendCombos, recommendPizza, recommendSides } from "./recommendations";
 import { AI_TOOLS, buildRagContext, executeToolCall, extractOrderNumber, getOrderTrackingReply } from "./tools";
-import type { CartItem, ChatCompletionMessage, ChatContext, SessionMemory } from "./types";
+import type { CartItem } from "@/lib/utils";
+import type { ChatCompletionMessage, ChatContext, SessionMemory } from "./types";
 
 export interface ChatRunResult {
   reply: string;
@@ -87,7 +88,7 @@ export async function runChat(
     return { reply: formatCartSummary(context.cartItems || []), memory };
   }
 
-  if (memory.pendingRecommendation && intent !== "OFF_TOPIC") {
+  if (memory.pendingRecommendation) {
     memory.pendingRecommendation = false;
     return {
       reply: await recommendPizza({ memory, userText, limit: 3 }),
