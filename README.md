@@ -32,9 +32,6 @@ npm run db:setup
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
-
-Admin: `/admin` (password from `ADMIN_PASSWORD` in `.env`)
 
 ## Environment variables
 
@@ -50,7 +47,7 @@ Copy `.env.example` to `.env` and fill in only what you need:
 | `NEXT_PUBLIC_APP_URL` | No | Public URL for links in emails |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | No | WhatsApp contact (digits only) |
 
-**Never commit `.env` or API key files to GitHub.**
+
 
 ## Features
 
